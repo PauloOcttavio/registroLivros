@@ -29,3 +29,8 @@ const Livro = sequelize.define('Livro', {
 //cria a foreign key
 
 console.log(Livro === sequelize.models.Livro); 
+
+(async () => {
+  await sequelize.sync();
+  // Code here
+})();
