@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
       Usuario.hasMany(models.Telefone,{
         foreignKey:'usuarioId'
       })
+      Usuario.hasMany(models.Email,{
+        foreignKey:'usuarioId'
+      })
+      Usuario.hasMany(models.Associacao,{
+        foreignKey:'usuarioId'
+      })
     }
   }
   Usuario.init({
