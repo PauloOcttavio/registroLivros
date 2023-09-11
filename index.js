@@ -1,5 +1,4 @@
 require('dotenv').config();
-const jwt = require("jsonwebtoken")
 require('crypto').randomBytes(64).toString('hex')
 const routes = require("./rotas.js") ;
 const db = require('./src/models/index.js')

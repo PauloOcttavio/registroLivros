@@ -1,7 +1,8 @@
 'use strict';
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
-
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
   class Usuario extends Model {
     /**
      * Helper method for defining associations.
@@ -10,24 +11,16 @@ const sequelize = new Sequelize('sqlite::memory:');
      */
     static associate(models) {
       // define association here
-      Usuario.hasMany(models.Telefone,{
-        foreignKey:'usuarioId'
-      })
-      Usuario.hasMany(models.Email,{
-        foreignKey:'usuarioId'
-      })
-      Usuario.hasMany(models.Associacao,{
-        foreignKey:'usuarioId'
-      })
     }
   }
   Usuario.init({
-    primeiroNome: DataTypes.STRING,
-    ultimoNome: DataTypes.STRING,
-    email: DataTypes.STRING
+    nome: DataTypes.STRING,
+    senha: DataTypes.STRING,
+    email: DataTypes.STRING,
+    telefone: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Usuario',
   });
-
- module.exports = Usuario
+  return Usuario;
+};
