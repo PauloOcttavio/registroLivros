@@ -4,7 +4,7 @@ const sequelize = new Sequelize('sqlite::memory:');
 const Usuario = require('./usuario');
 
   
- export default class Telefone extends Model {
+  class Telefone extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -25,9 +25,7 @@ const Usuario = require('./usuario');
     sequelize,
     modelName: 'Telefone',
   });
- Telefone.belongsTo(Usuario);
+ 
 
- Usuario.hasMany(Telefone,{
-    foreignKey:'usuarioId'
- });
-   
+ 
+   module.exports = Telefone;

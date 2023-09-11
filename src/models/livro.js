@@ -2,10 +2,7 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:');
 const Usuario = require('./usuario');
-
-
-  
- export default class Livro extends Model {
+ class Livro extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -19,10 +16,11 @@ const Usuario = require('./usuario');
     nome: DataTypes.STRING,
     editora: DataTypes.STRING,
     ano: DataTypes.STRING,
-    descricao: DataTypes.STRING
+    descricao: DataTypes.STRING,
+    imagem:DataTypes.BLOB
   }, {
     sequelize,
     modelName: 'Livro',
   });
-
+module.exports = Livro;
   

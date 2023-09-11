@@ -1,9 +1,8 @@
 'use strict';
-import Telefone from "./telefone"
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:');
 
- export default class Usuario extends Model {
+  class Usuario extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -31,4 +30,4 @@ const sequelize = new Sequelize('sqlite::memory:');
     modelName: 'Usuario',
   });
 
- 
+ module.exports = Usuario
