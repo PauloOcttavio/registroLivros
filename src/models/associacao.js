@@ -1,9 +1,9 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Associacao extends Model {
+import { Sequelize, DataTypes, Model } from 'sequelize';
+const sequelize = new Sequelize('sqlite::memory:');
+import Usuario from './usuario';
+  
+ export default class Associacao extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,10 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Associacao.belongsTo(models.Usuario,{
-        foreignKey:'usuarioId',
-        onDelete: 'CASCADE'
-      })
+      
     }
   }
   Associacao.init({
@@ -24,5 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Associacao',
   });
-  return Associacao;
-};
+  Usuario.hasmany(Associacao)
+  Associacao.belongsTo(Usuario,{
+        foreignKey:'usuarioId',
+        onDelete: 'CASCADE'
+      })
+   
