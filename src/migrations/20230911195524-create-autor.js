@@ -19,6 +19,9 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      livroId:{
+        type: Sequelize.INTEGER
       }
     });
   },
