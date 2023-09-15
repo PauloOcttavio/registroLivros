@@ -21,7 +21,5 @@ routes.get("/livro/:id", livro.findLivro);
 routes.put("/livro/:id", livro.updateLivro);
 routes.delete("/livro/:id", livro.deleteLivro);
 
-
-
 module.exports = routes;
 
