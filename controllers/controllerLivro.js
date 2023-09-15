@@ -42,4 +42,4 @@ async function deleteLivro(req, res) {
   Livro.findAll().then((result) => res.json(result));
 }
 
-export default { findAll, addLivro, findLivro, updateLivro, deleteLivro };
+module.exports ={ findAll, addLivro, findLivro, updateLivro, deleteLivro };

@@ -11,7 +11,7 @@ module.exports = {
         table: 'Livros',
         field: 'id'
       }
-    })
+    });
   },
 
   async down (queryInterface, Sequelize) {

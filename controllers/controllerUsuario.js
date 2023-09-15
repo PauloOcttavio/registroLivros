@@ -1,22 +1,23 @@
+const { Sequelize } = require("sequelize");
+const sequelize = require('../src/models/index').sequelize;
+const Usuario = require("../src/models/usuario")(sequelize,Sequelize.DataTypes);
 
-const Usuario =require("../src/models/usuario");
-
-function findAll(req, res) {
-  Usuario.findAll().then((result) => res.json(result));
-}
+async function findAll(req, res) {
+  await Usuario.findAll().then((result) => res.json(result));
+};
 
 function findUsuario(req, res) {
   Usuario.findByPk(req.params.id).then((result) => res.json(result));
-}
+};
 
-function addUsuario(req, res) {
-  Usuario.create({
+async function addUsuario(req, res) {
+  await Usuario.create({
     nome: req.body.nome,
     senha: req.body.senha,
     email: req.body.email,
     telefone: req.body.telefone,
   }).then((result) => res.json(result));
-}
+};
 
 async function updateUsuario(req, res) {
   await Usuario.update(
@@ -32,7 +33,7 @@ async function updateUsuario(req, res) {
   );
 
   Usuario.findByPk(req.params.id).then((result) => res.json(result));
-}
+};
 
 async function deleteUsuario(req, res) {
   await Usuario.destroy({
@@ -44,4 +45,4 @@ async function deleteUsuario(req, res) {
   Usuario.findAll().then((result) => res.json(result));
 }
 
-export default { findAll, addUsuario, findUsuario, updateUsuario, deleteUsuario };
+module.exports= { findAll, addUsuario, findUsuario, updateUsuario, deleteUsuario };
