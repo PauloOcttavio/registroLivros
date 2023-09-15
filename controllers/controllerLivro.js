@@ -1,5 +1,6 @@
-
-const Livro = require("../src/models/livro");
+const { Sequelize } = require("sequelize");
+const sequelize = require('../src/models/index').sequelize;
+const Livro = require("../src/models/livro")(sequelize,Sequelize.DataTypes);
 
 function findAll(req, res) {
   Livro.findAll().then((result) => res.json(result));
