@@ -30,7 +30,9 @@ async function updateUsuario(req, res) {
   await Usuario.update(
     {
       nome: req.body.nome,
+      senha: req.body.senha,
       email: req.body.email,
+      telefone: req.body.telefone
     },
     {
       where: {

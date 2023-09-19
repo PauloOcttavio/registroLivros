@@ -13,7 +13,8 @@ function findLivro(req, res) {
 function addLivro(req, res) {
   Livro.create({
     nome: req.body.nome,
-    email: req.body.email,
+    imagem: req.body.imagem,
+    editora: req.body.editora
   }).then((result) => res.json(result));
 }
 
@@ -21,7 +22,8 @@ async function updateLivro(req, res) {
   await Livro.update(
     {
       nome: req.body.nome,
-      email: req.body.email,
+    imagem: req.body.imagem,
+    editora: req.body.editora
     },
     {
       where: {
