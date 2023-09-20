@@ -2,7 +2,7 @@ const express = require('express');
 const usuario = require('./controllers/controllerUsuario');
 const livro = require("./controllers/controllerLivro")
 const routes = express.Router();
-const jwt = require("jsonwebtoken")
+
 
 routes.get("/usuario",usuario.findAll);
 routes.post("/usuario", usuario.addUsuario);
@@ -17,5 +17,7 @@ routes.get("/livro/:id", livro.findLivro);
 routes.put("/livro/:id", livro.updateLivro);
 routes.delete("/livro/:id", livro.deleteLivro);
 
-module.exports = routes;
 
+
+routes.post('/login',usuario.login);
+module.exports = routes;

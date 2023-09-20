@@ -12,4 +12,4 @@ app.use(routes);
 
 db.sequelize.sync(() => console.log(`Banco de dados conectado: minhaDB`));
 
-app.listen(8080, () => console.log("Servidor iniciado na porta 8000"));
+app.listen(8080, () => console.log("Servidor iniciado na porta 8080"));
