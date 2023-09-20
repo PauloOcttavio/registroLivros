@@ -32,6 +32,7 @@ function findOneUsuario(req, res) {
 function findSenha(req, res) {
   Usuario.findByPk(req.params.senha).then((result) => res.json(result));
 };
+
 async function addUsuario(req, res) {
   const salt = await bcrypt.genSalt(10);
   const usuarioExiste =await Usuario.findOne({ where : {nome : req.body.nome }})
