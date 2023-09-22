@@ -35,17 +35,13 @@ function findSenha(req, res) {
 
 async function addUsuario(req, res) {
   const salt = await bcrypt.genSalt(10);
-  const usuarioExiste =await Usuario.findOne({ where : {nome : req.body.nome }})
-  if (!usuarioExiste) {
     await Usuario.create({
     nome: req.body.nome,
     senha: await bcrypt.hash(req.body.senha, salt),
     email: req.body.email,
     telefone: req.body.telefone,
   }).then((result) => res.json(result));
-  } else {
-    res.status(404).json({erro: "usuario ja existe"})
-  }
+   
   }
   
 
