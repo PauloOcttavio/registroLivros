@@ -10,6 +10,9 @@ async function findAll(req, res) {
 function findUsuario(req, res) {
   Usuario.findByPk(req.params.id).then((result) => res.json(result));
 };
+function countUsuarios(req,res) {
+  Usuario.count().then((response)=>res.json(response))
+}
 async function login(req,res){
   const user = await Usuario.findOne({ where : {nome : req.body.nome }});
   if(user){
@@ -73,4 +76,4 @@ async function deleteUsuario(req, res) {
   Usuario.findAll().then((result) => res.json(result));
 }
 
-module.exports= { findAll, addUsuario, findUsuario, updateUsuario, deleteUsuario,login };
+module.exports= { findAll, addUsuario, countUsuarios, findUsuario, updateUsuario, deleteUsuario,login };
